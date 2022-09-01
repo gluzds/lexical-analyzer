@@ -1,4 +1,4 @@
-import { Button, Flex, HStack, Input, Table, TableCaption, TableContainer, Tbody, Td, Text, Th, Thead, Tr, VStack } from '@chakra-ui/react'
+import { Button, Flex, HStack, Input, Link, Table, TableCaption, TableContainer, Tbody, Td, Text, Th, Thead, Tr, VStack } from '@chakra-ui/react'
 import { useState } from 'react';
 import { Instructions } from '../components/InstructionsTable';
 import { analyze, Triple } from '../utils/lexicalAnalyzer';
@@ -27,6 +27,15 @@ export default function Home() {
         <Input placeholder="String" w="400px" onChange={handleChange} />
         <Button colorScheme="red" onClick={() => analyzeLexem()}>Analisar</Button>
       </HStack>
+      {!error && results && <Link
+        as='i'
+        fontSize='sm'
+        color="gray.300"
+        pt={1}
+        onClick={() => setResults(undefined)}
+      >
+        Visualizar instruções
+      </Link>}
       {
         error &&
         <Text
